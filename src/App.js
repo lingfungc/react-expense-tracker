@@ -1,4 +1,4 @@
-import ExpenseItem from "./components/ExpenseItem";
+// import ExpenseItem from "./components/ExpenseItem";
 import Expenses from "./components/Expenses";
 
 function App() {
@@ -28,10 +28,13 @@ function App() {
     <div>
       <h2>Let's get started!</h2>
       <p>Hello React</p>
-      <Expenses expense={expenses[0]} />
+
+      <Expenses item={expenses} />
+
+      {/* <Expenses expense={expenses[0]} />
       <Expenses expense={expenses[1]} />
       <Expenses expense={expenses[2]} />
-      <Expenses expense={expenses[3]} />
+      <Expenses expense={expenses[3]} /> */}
 
       {/* <ExpenseItem
         title={expenses[0].title}
