@@ -1,3 +1,5 @@
+import React from "react";
+
 // import ExpenseItem from "./components/ExpenseItem";
 import Expenses from "./components/Expenses";
 
@@ -24,40 +26,48 @@ function App() {
     },
   ];
 
-  return (
-    <div>
-      <h2>Let's get started!</h2>
-      <p>Hello React</p>
-
-      <Expenses item={expenses} />
-
-      {/* <Expenses expense={expenses[0]} />
-      <Expenses expense={expenses[1]} />
-      <Expenses expense={expenses[2]} />
-      <Expenses expense={expenses[3]} /> */}
-
-      {/* <ExpenseItem
-        title={expenses[0].title}
-        amount={expenses[0].amount}
-        date={expenses[0].date}
-      />
-      <ExpenseItem
-        title={expenses[1].title}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      />
-      <ExpenseItem
-        title={expenses[2].title}
-        amount={expenses[2].amount}
-        date={expenses[2].date}
-      />
-      <ExpenseItem
-        title={expenses[3].title}
-        amount={expenses[3].amount}
-        date={expenses[3].date}
-      /> */}
-    </div>
+  // this is the old way to write React code which requires import React from 'react' in every .js files
+  return React.createElement(
+    "div",
+    {},
+    React.createElement("h2", {}, "Let's get started!"),
+    React.createElement(Expenses, { item: expenses })
   );
+
+  // return (
+  //   <div>
+  //     <h2>Let's get started!</h2>
+  //     <p>Hello React</p>
+
+  //     <Expenses item={expenses} />
+
+  //     {/* <Expenses expense={expenses[0]} />
+  //     <Expenses expense={expenses[1]} />
+  //     <Expenses expense={expenses[2]} />
+  //     <Expenses expense={expenses[3]} /> */}
+
+  //     {/* <ExpenseItem
+  //       title={expenses[0].title}
+  //       amount={expenses[0].amount}
+  //       date={expenses[0].date}
+  //     />
+  //     <ExpenseItem
+  //       title={expenses[1].title}
+  //       amount={expenses[1].amount}
+  //       date={expenses[1].date}
+  //     />
+  //     <ExpenseItem
+  //       title={expenses[2].title}
+  //       amount={expenses[2].amount}
+  //       date={expenses[2].date}
+  //     />
+  //     <ExpenseItem
+  //       title={expenses[3].title}
+  //       amount={expenses[3].amount}
+  //       date={expenses[3].date}
+  //     /> */}
+  //   </div>
+  // );
 }
 
 export default App;
