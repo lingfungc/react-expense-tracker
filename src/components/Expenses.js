@@ -2,12 +2,13 @@
 // TODO - Add multiple ExpenseItem components in that component
 // TODO - Keep the expenses data in the App component and pass that data into the newly created component
 
+import Card from "./Card";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 
 function Expenses(props) {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       <ExpenseItem
         title={props.item[0].title}
         amount={props.item[0].amount}
@@ -28,7 +29,7 @@ function Expenses(props) {
         amount={props.item[3].amount}
         date={props.item[3].date}
       />
-    </div>
+    </Card>
 
     // <div className="expense">
     //   <ExpenseItem
