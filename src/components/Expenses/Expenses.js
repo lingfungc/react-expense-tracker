@@ -2,7 +2,7 @@
 // TODO - Add multiple ExpenseItem components in that component
 // TODO - Keep the expenses data in the App component and pass that data into the newly created component
 
-import Card from "./Card";
+import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 
