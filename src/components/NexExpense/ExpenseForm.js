@@ -13,6 +13,22 @@ const ExpenseForm = () => {
   //   enteredDate: "",
   // });
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log(expenseData);
+
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
+  };
+
   const titleChangeHandler = (e) => {
     setEnteredTitle(e.target.value);
     // console.log(e.target.value);
@@ -38,7 +54,7 @@ const ExpenseForm = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
