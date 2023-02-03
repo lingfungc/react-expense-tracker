@@ -1,6 +1,6 @@
 Q: What is React.js?
 React is a frontend JavaScript library for building user interface.
-React aims to build application which is more reactive and with smooth transition, e.g. Netfilx
+React aims to build application which is more reactive and with smooth transition, e.g. Netflix
 With React, we do not need to wait for new pages to load or actions to start.
 
 Q: Why does React rely on JavaScript?
