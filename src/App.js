@@ -42,7 +42,8 @@ const App = () => {
   ];
 
   // * This handler function is passed to 'NewExpense' component, and take data from 'NewExpense' as argument
-  // * This is how we can pass data from-bottom-to-top, which is from child to parent component(s)
+  // * We can get this argument via 'props.onAddExpense(expenseData)' in 'NewExpense' component
+  // * This is how we can access or pass data from-bottom-to-top, which is from child to parent component(s)
   const addExpenseHandler = (expenseData) => {
     console.log("Expense Data is now passed to App.js");
     console.log(expenseData);
