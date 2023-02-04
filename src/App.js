@@ -9,6 +9,9 @@
 //   React.createElement(Expenses, { item: expenses })
 // );
 
+// * Import CSS when it is needed
+// import "./App.css";
+
 // * Importing child components
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NexExpense/NewExpense";
