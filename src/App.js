@@ -1,5 +1,6 @@
 import React from "react";
 
+// In React, import and export are very important, especially for passing the parent-child component(s)
 // import ExpenseItem from "./components/ExpenseItem";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NexExpense/NewExpense";
