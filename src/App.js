@@ -1,11 +1,21 @@
-import React from "react";
+// * We need to import React package when we use the old way to create a React element
+// import React from "react";
 
-// In React, import and export are very important, especially for passing the parent-child component(s)
-// import ExpenseItem from "./components/ExpenseItem";
+// * This is the old way to create a React element, which should be returned inside 'App' component
+// return React.createElement(
+//   "div",
+//   {},
+//   React.createElement("h2", {}, "Let's get started!"),
+//   React.createElement(Expenses, { item: expenses })
+// );
+
+// * Importing child components
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NexExpense/NewExpense";
 
+// * Create a React component 'App'
 const App = () => {
+  // * This 'expenses' is a hard-code data for demonstration
   const expenses = [
     {
       id: "e1",
@@ -28,85 +38,28 @@ const App = () => {
     },
   ];
 
+  // * This handler function is passed to 'NewExpense' component, and take data from 'NewExpense' as argument
+  // * This is how we can pass data from-bottom-to-top, which is from child to parent component(s)
   const addExpenseHandler = (expenseData) => {
     console.log("Expense Data is now passed to App.js");
     console.log(expenseData);
   };
 
-  // this is the old way to write React code which requires import React from 'react' in every .js files
-  // return React.createElement(
-  //   "div",
-  //   {},
-  //   React.createElement("h2", {}, "Let's get started!"),
-  //   React.createElement(Expenses, { item: expenses })
-  // );
-
+  // * We can only return 1 element for each component, and need to group all things in a <div />, or <Card />
+  // * This is JSX code inside this return() element
   return (
     <div>
       <h2>Let's get started!</h2>
       <p>Hello React</p>
 
+      {/* We here render 'NewExpense' component and pass 'addExpenseHandler' via 'props.onAddExpense' */}
       <NewExpense onAddExpense={addExpenseHandler} />
 
+      {/* We here render 'Expenses' component and pass 'expenses' via 'props.item' */}
       <Expenses item={expenses} />
     </div>
   );
 };
 
+// * We have to export the component to the parent component, which is 'index.js' in this case
 export default App;
-
-{
-  /* <Expenses expense={expenses[0]} />
-      <Expenses expense={expenses[1]} />
-      <Expenses expense={expenses[2]} />
-      <Expenses expense={expenses[3]} /> */
-}
-
-{
-  /* <ExpenseItem
-        title={expenses[0].title}
-        amount={expenses[0].amount}
-        date={expenses[0].date}
-      />
-      <ExpenseItem
-        title={expenses[1].title}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      />
-      <ExpenseItem
-        title={expenses[2].title}
-        amount={expenses[2].amount}
-        date={expenses[2].date}
-      />
-      <ExpenseItem
-        title={expenses[3].title}
-        amount={expenses[3].amount}
-        date={expenses[3].date}
-      /> */
-}
-
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
