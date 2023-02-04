@@ -4,7 +4,7 @@ import "./ExpenseItem.css";
 import Card from "../UI/Card";
 import ExpenseDate from "./ExpenseDate";
 
-// * This 'ExpenseItem' is getting data from 'Expenses' via 'props'
+// * This 'ExpenseItem' is getting expense item data from 'Expenses' via 'props'
 function ExpenseItem(props) {
   // * This 'useState()' is just a demonstration of how it works, but not really necessary for this 'expense-tracker' application
   // * First, we set the 'title' value which is also the displayed title to 'props.title'
