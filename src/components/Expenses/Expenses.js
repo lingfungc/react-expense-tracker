@@ -56,5 +56,5 @@ function Expenses(props) {
   );
 }
 
-// * Export this 'Expense' to parent 'App'
+// * Export this 'Expenses' to parent 'App'
 export default Expenses;
