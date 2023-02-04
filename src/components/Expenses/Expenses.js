@@ -1,21 +1,20 @@
-// TODO - Create a new component that is responsible for displaying expense
-// TODO - Add multiple ExpenseItem components in that component
-// TODO - Keep the expenses data in the App component and pass that data into the newly created component
-
 import React, { useState } from "react";
 
+// * Importing CSS, Card (user interface) and children components
+import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import ExpenseFilter from "./ExpenseFilter";
 
-import "./Expenses.css";
-
 function Expenses(props) {
+  // * This is a 2-way binding to set and update value for 'selectedYear' in 'ExpenseFilter' component
   const [selectedYear, setSelectedYear] = useState("2019");
 
+  // * This 'saveSelectYearHandler()' is for getting the data 'filteredYear' from 'ExpenseFilter' component
   const saveSelectYearHandler = (filteredYear) => {
     console.log("Selected Year is now passed to Expenses.js");
     console.log(filteredYear);
+
     setSelectedYear(filteredYear);
   };
 
@@ -23,13 +22,16 @@ function Expenses(props) {
     <div>
       <Card className="expenses">
         <ExpenseFilter
+          // * Here passing 'saveSelectYearHandler()' via 'props.onSelectYear()' to 'ExpenseFilter' component
           onSelectYear={saveSelectYearHandler}
+          // * Here passing value of 'selectedYear' via 'props.selected' to 'ExpenseFilter' component
           selected={selectedYear}
         />
 
         <ExpenseItem
-          // * To pass the data from Expenses (parent) to ExpenseItem (child)
-          // * So we then can use "props.title" to access the data in ExpenseItem
+          // * This 'props.item' data is inherited from 'App' component
+          // * This 'props.item' is an object storing the data with attributes 'title', 'amount' and 'date'
+          // * Hence, we pass this 'props.item' directly to the 'ExpenseItem' component
           title={props.item[0].title}
           amount={props.item[0].amount}
           date={props.item[0].date}
@@ -51,15 +53,8 @@ function Expenses(props) {
         />
       </Card>
     </div>
-
-    // <div className="expense">
-    //   <ExpenseItem
-    //     title={props.expense.title}
-    //     amount={props.expense.amount}
-    //     date={props.expense.date}
-    //   />
-    // </div>
   );
 }
 
+// * Export this 'Expense' to parent 'App'
 export default Expenses;
