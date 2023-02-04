@@ -2,8 +2,11 @@ import React from "react";
 
 import "./ExpenseFilter.css";
 
+// * We can get data via 'props.onSelectedYear()' and 'props.selected' from 'Expenses' component
 const ExpenseFilter = (props) => {
+  // * This selectedYearHandler() event listener is invoked whenever user choose a year with the dropdown
   const selectYearHandler = (e) => {
+    // * Whenever the user chooses a year (filter a year), we pass this year back to 'saveSelectYearHandler()' via 'props.onSelectYear()' to 'Expenses' component
     props.onSelectYear(e.target.value);
   };
 
@@ -14,6 +17,7 @@ const ExpenseFilter = (props) => {
         <select
           name=""
           id=""
+          // * The initial value of 'year' in this dropdown is inherited via 'props.selected' from 'Expenses' component
           value={props.selected}
           onChange={selectYearHandler}
         >
@@ -27,4 +31,5 @@ const ExpenseFilter = (props) => {
   );
 };
 
+// * Export this 'ExpenseFilter' to parent 'Expenses'
 export default ExpenseFilter;
