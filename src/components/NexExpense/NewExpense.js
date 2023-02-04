@@ -31,4 +31,5 @@ const NewExpense = (props) => {
   );
 };
 
+// * Export this 'NewExpense' to parent 'App'
 export default NewExpense;
