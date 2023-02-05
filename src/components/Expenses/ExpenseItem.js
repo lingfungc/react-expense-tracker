@@ -8,13 +8,13 @@ import ExpenseDate from "./ExpenseDate";
 function ExpenseItem(props) {
   // * This 'useState()' is just a demonstration of how it works, but not really necessary for this 'expense-tracker' application
   // * First, we set the 'title' value which is also the displayed title to 'props.title'
-  const [title, setTitle] = useState(props.title);
+  // const [title, setTitle] = useState(props.title);
 
-  const clickHandler = () => {
-    // * Here we just assign the 'title' with a value of "New item" for demonstration only
-    setTitle("New item");
-    console.log(title);
-  };
+  // * Here we just assign the 'title' with a value of "New item" for demonstration only
+  // const clickHandler = () => {
+  //   setTitle("New item");
+  //   console.log(title);
+  // };
 
   return (
     <Card className="expense-item">
@@ -22,11 +22,11 @@ function ExpenseItem(props) {
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         {/* This 'title' is in 2-way binding, and its value is depended on 'useState()' */}
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
       </div>
       <div className="expense-item__price">${props.amount}</div>
       {/* This 'onClick()' event will invoke 'clickHandler()' but just for demonstration purpose */}
-      <button onClick={clickHandler}>Click</button>
+      {/* <button onClick={clickHandler}>Click</button> */}
     </Card>
   );
 }
