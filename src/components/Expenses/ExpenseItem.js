@@ -11,6 +11,7 @@ function ExpenseItem(props) {
   // const [title, setTitle] = useState(props.title);
 
   // * Here we just assign the 'title' with a value of "New item" for demonstration only
+  // * This clickHandler() will incur bug on 'title' value when we try add a new expense and update state in 'Expenses'
   // const clickHandler = () => {
   //   setTitle("New item");
   //   console.log(title);
