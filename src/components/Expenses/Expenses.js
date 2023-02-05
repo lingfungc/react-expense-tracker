@@ -28,29 +28,17 @@ function Expenses(props) {
           selected={selectedYear}
         />
 
-        <ExpenseItem
-          // * This 'props.item' data is inherited from 'App' component
-          // * This 'props.item' is an object storing the data with attributes 'title', 'amount' and 'date'
-          // * Hence, we pass this 'props.item' directly to the 'ExpenseItem' component
-          title={props.item[0].title}
-          amount={props.item[0].amount}
-          date={props.item[0].date}
-        />
-        <ExpenseItem
-          title={props.item[1].title}
-          amount={props.item[1].amount}
-          date={props.item[1].date}
-        />
-        <ExpenseItem
-          title={props.item[2].title}
-          amount={props.item[2].amount}
-          date={props.item[2].date}
-        />
-        <ExpenseItem
-          title={props.item[3].title}
-          amount={props.item[3].amount}
-          date={props.item[3].date}
-        />
+        {/* This 'props.item' data is inherited from 'App' component */}
+        {/* This 'props.item' is an object storing the data with attributes 'title', 'amount' and 'date' */}
+        {/* Hence, we pass this 'props.item' directly to the 'ExpenseItem' component */}
+        {/* This 'props.item.map()' returns us an array of data inherited from 'App' which each element is put in 'ExpenseItem' component */}
+        {props.item.map((expense) => (
+          <ExpenseItem
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
       </Card>
     </div>
   );
