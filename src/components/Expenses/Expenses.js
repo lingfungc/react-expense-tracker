@@ -34,6 +34,13 @@ function Expenses(props) {
         {/* This 'props.items.map()' returns us an array of data inherited from 'App' which each element is put in 'ExpenseItem' component */}
         {props.items.map((expense) => (
           <ExpenseItem
+            // * Generally, when there is a 'new expense' with useState() for the 'expenses' array
+            // * React will first add 1 more 'ExpenseItem' <div /> at top, and then re-assign the value(s) for every <div />, but this is not a good practice
+            // * Because every 'ExpenseItem' <div /> will be re-assigned with new value and re-edited in this case
+            // * The better practice should be only adding the new 'ExpenseItem' <div /> at top, but not editing any existing 'ExpenseItem' <div />
+            // * In order to do this in React, we need to add 'key={expense.id}' inside <ExpenseItem /> component, so React will know these data should be stick with the respective 'ExpenseItem'
+            // * Moreover, this 'key' should be an unique element, such as id ...
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
