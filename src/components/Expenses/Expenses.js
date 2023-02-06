@@ -18,6 +18,40 @@ function Expenses(props) {
     setSelectedYear(filteredYear);
   };
 
+  // * This 'props.items' data is inherited from 'App' component
+  // * This 'props.items' is an object storing the data with attributes 'title', 'amount' and 'date'
+  // * Hence, we pass this 'props.items' directly to the 'ExpenseItem' component
+  // * We first use '.filter()' to filter expenses with the filtered year
+  const filteredExpenses = props.items.filter(
+    (expense) => expense.date.getFullYear() === parseInt(selectedYear, 10)
+  );
+
+  // * Keep in mind that we can also write JSX code outside the returned element in the React component
+  // * We apply conditional content depended on the filtered year result
+  let expensesContent = <p>No expenses found.</p>;
+
+  if (filteredExpenses.length > 0) {
+    // * This 'props.items.map()' returns us an array of data inherited from 'App' which each element is put in 'ExpenseItem' component
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        // * Normally, when there is a 'new expense' with 'useState()' for this 'expenses' array data
+        // * React will add a 'ExpenseItem' <div> as the last item in this array list of 'ExpenseItem' <div>
+        // * Then React will update all items and replace their content for every <div> inside this array list of 'ExpenseItem' to match the order of the items in this array list
+        // * This is normally how React works but this is not a good practice because all items are now visited and edited, there is more chances to have bugs
+        // * Bugs may be incurred when we also have other 'useState()'s on the items in this array list, those 'states' may be easily lost
+
+        // * So, this 'key' prop is important for us to tell React that where is the 'new expense' item should be added
+        // * We can always add this 'key' prop to every element to help React identify the individual items
+        // * In this case and general cases, we should add this 'key' prop with an unique ID of the items in the array list
+        // * We should always add this 'key' prop when mapping out list of items
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
+
   return (
     <div>
       <Card className="expenses">
@@ -27,34 +61,7 @@ function Expenses(props) {
           // * Here passing value of 'selectedYear' via 'props.selected' to 'ExpenseFilter' component
           selected={selectedYear}
         />
-
-        {/* This 'props.items' data is inherited from 'App' component */}
-        {/* This 'props.items' is an object storing the data with attributes 'title', 'amount' and 'date' */}
-        {/* Hence, we pass this 'props.items' directly to the 'ExpenseItem' component */}
-        {/* This 'props.items.map()' returns us an array of data inherited from 'App' which each element is put in 'ExpenseItem' component */}
-        {props.items
-          .filter(
-            (expense) =>
-              expense.date.getFullYear() === parseInt(selectedYear, 10)
-          )
-          .map((expense) => (
-            <ExpenseItem
-              // * Normally, when there is a 'new expense' with 'useState()' for this 'expenses' array data
-              // * React will add a 'ExpenseItem' <div> as the last item in this array list of 'ExpenseItem' <div>
-              // * Then React will update all items and replace their content for every <div> inside this array list of 'ExpenseItem' to match the order of the items in this array list
-              // * This is normally how React works but this is not a good practice because all items are now visited and edited, there is more chances to have bugs
-              // * Bugs may be incurred when we also have other 'useState()'s on the items in this array list, those 'states' may be easily lost
-
-              // * So, this 'key' prop is important for us to tell React that where is the 'new expense' item should be added
-              // * We can always add this 'key' prop to every element to help React identify the individual items
-              // * In this case and general cases, we should add this 'key' prop with an unique ID of the items in the array list
-              // * We should always add this 'key' prop when mapping out list of items
-              key={expense.id}
-              title={expense.title}
-              amount={expense.amount}
-              date={expense.date}
-            />
-          ))}
+        {expensesContent}
       </Card>
     </div>
   );
