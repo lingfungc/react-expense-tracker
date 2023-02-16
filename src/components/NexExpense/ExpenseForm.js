@@ -70,7 +70,7 @@ const ExpenseForm = (props) => {
           <label>Title</label>
           <input
             type="text"
-            // * Here is a  2-way binding to assign and update the value with 'enteredTitle' at the same time
+            // * Here is a 2-way binding to assign and update the value with 'enteredTitle' at the same time
             // * At first rendering, it will be assigned to the value of the argument in 'useState()'
             // * Later on, it will be assigned to the value of the argument in 'setEnteredTitle()' in 'titleChangeHandler()'
             value={enteredTitle}
